@@ -1,0 +1,28 @@
+img {
+    width: 100%;
+}
+
+
+/* div {
+    width: 300px;
+} */
+
+.details {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.imageBox {
+    padding: 20px;
+    background-color: gray;
+}
+
+.imageBox img {
+    margin: 0 auto;
+}
+
+.imageBox p {
+    text-align: center;
+    margin-top: 10px;
+}
