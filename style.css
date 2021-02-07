@@ -13,9 +13,14 @@ img {
     gap: 20px;
 }
 
+
+/* this class create in js */
+
 .imageBox {
+    color: white;
     padding: 20px;
-    background-color: gray;
+    background-color: #191102;
+    border-radius: 25px;
 }
 
 .imageBox img {
@@ -28,11 +33,13 @@ img {
 }
 
 .popup {
-    background-color: honeydew;
+    background-color: #1a1423;
+    color: white;
     padding: 20px;
     margin: 0 auto;
     width: 500px;
     display: none;
+    border-radius: 25px;
 }
 
 .new {
@@ -44,6 +51,7 @@ img {
 }
 
 .closed-block {
+    color: white;
     display: inline-block;
     font-weight: bold;
     font-size: 2rem!important;
@@ -56,4 +64,5 @@ img {
 
 .closed-block span {
     cursor: pointer;
+    color: white;
 }

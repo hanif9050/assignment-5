@@ -10,7 +10,6 @@ searchBtn.addEventListener('click', () => {
     let newInput = inputGet.value
         // console.log(newInput);
     console.log('clicked');
-    const isEmpty = document.getElementById('isEmpty').innerHTML === "";
 
     if (details.innerHTML != '') {
         details.innerHTML = ''
@@ -30,53 +29,12 @@ searchBtn.addEventListener('click', () => {
 // closed button
 closedBtn.addEventListener("click", () => {
     document.querySelector(".new").style.display = "none"
-    details.style.display = "grid"
-    searchBtn.style.display = "block"
-    inputGet.style.display = "block"
+
+    window.location.reload();
 })
 
 
-//first try not necesseryy
 
-// fetch("https://www.themealdb.com/api/json/v1/1/lookup.php?i=52772")
-//     .then(response => response.json())
-//     .then(data => {
-
-
-//         let getMeal = data.meals[0]
-//             // console.log(getMeal.strMealThumb)
-//         imgContainer.src = getMeal.strMealThumb
-//     });
-
-
-
-// second tryimportant
-// fetch("https://www.themealdb.com/api/json/v1/1/search.php?f=c")
-//     .then(response => response.json())
-//     .then(data => {
-//         let allItems = ''
-//         let allImg = ''
-//         const dataGet = data.meals
-//         dataGet.forEach(index => {
-//                 // console.log(index)
-//                 allItems = index.strMeal;
-//                 allImg = index.strMealThumb;
-//                 // console.log(index.strMealThumb)
-//                 const newDiv = document.createElement('div')
-//                 newDiv.className = "imageBox"
-//                     // newDiv.innerHTML = `<img src=${allImg}>`
-//                     // newDiv.innerHTML = `<p>${allItems}</p>`
-//                 const newElement = document.createElement('p')
-//                 const newImg = document.createElement('img')
-//                 newImg.src = allImg
-//                 newElement.innerHTML = allItems
-//                 details.appendChild(newDiv)
-//                 newDiv.appendChild(newImg)
-//                 newDiv.appendChild(newElement);
-//             })
-//             // console.log(dataGet)
-//     });
-// function of search
 
 function firstSearch(name) {
 
@@ -88,80 +46,42 @@ function firstSearch(name) {
             let allImg = ''
             const dataGet = data.meals
             dataGet.forEach(index => {
-                    // console.log(index)
-                    allItems = index.strMeal;
-                    console.log("meal", allItems);
-                    const mealId = index.idMeal
-                    console.log("meal id", mealId);
-                    allImg = index.strMealThumb;
-                    // console.log(index.strMealThumb)
-                    const newDiv = document.createElement('div')
-                    newDiv.className = "imageBox"
-                        // newDiv.innerHTML = `<img src=${allImg}>`
-                        // newDiv.innerHTML = `<p>${allItems}</p>`
-                    const newElement = document.createElement('p')
-                    const newImg = document.createElement('img')
-                    newImg.src = allImg
-                    newImg.className = "singleImage"
-                    const imgSeletor = document.querySelectorAll('.singleImage')
-                    newImg.style.cursor = "pointer"
-                    newImg.addEventListener('click', () => {
-                        newIngredients(mealId)
-                        details.style.display = "none"
-                        searchBtn.style.display = "none"
-                        inputGet.style.display = "none"
-                    })
-                    console.log(newImg)
-                        // imgSeletor.forEach(index => {
-                        //     console.log("idex", index);
-                        //     index.addEventListener("clicked", () => {
-                        //         console.log("each clicked");
-                        //     })
-                        // })
-                    newElement.innerHTML = allItems
-                    details.appendChild(newDiv)
-                    newDiv.appendChild(newImg)
-                    newDiv.appendChild(newElement);
+                allItems = index.strMeal;
+                const mealId = index.idMeal
+                allImg = index.strMealThumb;
+                const newDiv = document.createElement('div')
+                newDiv.className = "imageBox"
+                const newElement = document.createElement('h6')
+                const newImg = document.createElement('img')
+                newImg.src = allImg
+                newImg.className = "singleImage"
 
+                newImg.style.cursor = "pointer"
+                    // new eventlistener for details about img
+                newImg.addEventListener('click', () => {
+                    newIngredients(mealId)
+                    details.style.display = "none"
+                    searchBtn.style.display = "none"
+                    inputGet.style.display = "none"
                 })
-                // console.log(dataGet)
+
+
+                newElement.innerHTML = allItems
+                details.appendChild(newDiv)
+                newDiv.appendChild(newImg)
+                newDiv.appendChild(newElement);
+
+            })
+
 
         }).catch(error => {
             alert("incorrect value")
-            console.log("incorrect value")
+
         });
 }
 
 
-// on click
-// const newIngredients = () => {
-//         fetch("https://www.themealdb.com/api/json/v1/1/lookup.php?i=52772")
-//             .then(response => response.json())
-//             .then(data => {
-//                 const newData = data.meals
-//                 newData.forEach(index => {
-//                     const pop = document.querySelector('.popup')
-//                     pop.innerHTML = `<h1> Name: ${index.strCategory}</h1>
-//     <h6>Ingredient1: ${index.strIngredient1}</h6>
-//     <h6>Ingredient2: ${index.strIngredient2}</h6>
-//     <h6>Ingredient3: ${index.strIngredient3}</h6>
-//     <h6>Ingredient4: ${index.strIngredient4}</h6>
-//     <h6>Country Name: ${index.strArea}</h6>
-//     `
-//                     console.log("index", index.strArea)
-//                 })
-//             })
-//             //  {
-//             //     const ingData = data.meals
-//             //     const ingDataArr = ingData.map(index => {
-//             //         console.log("index: ", index)
-//             //         return index;
-//             //     })
-//             //     ingDataArr.forEach((tem) => {
-//             //         console.log(tem.strMeal)
-//             //     })
-//             // })
-//}
+
 //////////////////////////////////
 const newIngredients = (mealId) => {
     fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`)
@@ -171,7 +91,8 @@ const newIngredients = (mealId) => {
             newData.forEach(index => {
                 const closed = document.querySelector('.closed')
                 const pop = document.querySelector('.popup')
-                closed.classList = "closed-block"
+
+                closed.classList.add("closed-block")
 
                 pop.style.display = "block"
 
@@ -188,14 +109,5 @@ const newIngredients = (mealId) => {
                 console.log("index", index.strMealThumb)
             })
         })
-        //  {
-        //     const ingData = data.meals
-        //     const ingDataArr = ingData.map(index => {
-        //         console.log("index: ", index)
-        //         return index;
-        //     })
-        //     ingDataArr.forEach((tem) => {
-        //         console.log(tem.strMeal)
-        //     })
-        // })
+
 }
