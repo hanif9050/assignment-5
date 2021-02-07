@@ -26,3 +26,34 @@ img {
     text-align: center;
     margin-top: 10px;
 }
+
+.popup {
+    background-color: honeydew;
+    padding: 20px;
+    margin: 0 auto;
+    width: 500px;
+    display: none;
+}
+
+.new {
+    position: relative;
+}
+
+.closed {
+    display: none;
+}
+
+.closed-block {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 2rem!important;
+    position: absolute;
+    top: 0;
+    right: 30%;
+    transform: translate(-30%, 0);
+    z-index: 2;
+}
+
+.closed-block span {
+    cursor: pointer;
+}
