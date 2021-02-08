@@ -100,11 +100,16 @@ const newIngredients = (mealId) => {
                     
                     <img src="${index.strMealThumb}">
                     <h2>  ${index.strMeal}</h2>
-                    <h6>Ingredient1: ${index.strIngredient1}</h6>
-                    <h6>Ingredient2: ${index.strIngredient2}</h6>
-                    <h6>Ingredient3: ${index.strIngredient3}</h6>
-                    <h6>Ingredient4: ${index.strIngredient4}</h6>
-                    <h6>Country Name: ${index.strArea}</h6>
+                    <h6>Ingredient1 : ${index.strIngredient1}</h6>
+                    <h6>Ingredient2 : ${index.strIngredient2}</h6>
+                    <h6>Ingredient3 : ${index.strIngredient3}</h6>
+                    <h6>Ingredient4 : ${index.strIngredient4}</h6>
+                    <h6>Ingredient5 : ${index.strIngredient5}</h6>
+                    <h6>Ingredient6 : ${index.strIngredient6}</h6>
+                    <h6>Ingredient7 : ${index.strIngredient7}</h6>
+                    <h6>Ingredient8 : ${index.strIngredient8}</h6>
+                    <h6>Ingredient9 : ${index.strIngredient9}</h6>
+                    <h6>Country Name : ${index.strArea}</h6>
                     `
                 console.log("index", index.strMealThumb)
             })
